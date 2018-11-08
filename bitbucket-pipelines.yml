@@ -1,0 +1,9 @@
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: tianon/latex:latest
+
+pipelines:
+  default:
+    - step:
+        script:
+          - apt-get update && apt-get install -y chktex pgf
+          - make check
